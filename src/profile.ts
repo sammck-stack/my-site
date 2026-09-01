@@ -16,10 +16,10 @@
 
 export const profile = {
   /** Your name as you want it to appear everywhere. */
-  displayName: "Your Name",
+  displayName: "Sam McKeown",
 
   /** Your UD email — must match the one you signed into the course with. */
-  email: "you@udel.edu",
+  email: "sammck@udel.edu",
 
   /** Where you're from. Shows on your roster card and /about. */
   hometown: "Newark, Delaware",
@@ -29,13 +29,13 @@ export const profile = {
    * how classmates find something to say hello about.
    */
   funFacts: [
-    "I once assembled IKEA furniture without leftover screws.",
-    "I can name every U.S. state capital in under two minutes.",
+    "I play the guitar.",
+    "I work at a golf course.",
   ],
 
   /** One decision you're proud of, in a sentence. */
   decisionImProudOf:
-    "I chose to take a gap semester to work retail; it taught me more about customers than any textbook.",
+    "I chose to study finance and business analytics at the University of Delaware.",
 
   /**
    * Your photo. Replace public/photo.svg with a real photo of you
@@ -52,7 +52,7 @@ export const profile = {
   rosterVisibility: "class" as "class" | "professor-only",
 
   /** A one-line tagline for your home page. Make it yours. */
-  tagline: "Building a portfolio of decision services, one lane at a time.",
+  tagline: "Finance and business analytics student at the University of Delaware.",
 
   /**
    * A short bio for your home page: two or three sentences, written like
@@ -65,5 +65,5 @@ export const profile = {
    * verify you have ≥ 5 commits spread over days (not one bulk dump).
    * Example: "https://github.com/your-username/your-repo"
    */
-  repoUrl: "https://github.com/your-username/your-repo",
+  repoUrl: "https://github.com/sammck-stack/my-site",
 };
