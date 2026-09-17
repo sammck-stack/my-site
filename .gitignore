@@ -21,3 +21,6 @@ npm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Accidental nested clone of this repo; do not commit it
+/my-site/
