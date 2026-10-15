@@ -1,12 +1,16 @@
-import { notBuiltYet } from "@/lib/not-built-yet";
+import { NextResponse } from "next/server";
 
 /**
- * ── TODO: Lane 3 — Challenge 3, "Decision Simulator" ─────────────────────
- * You'll build this after Chapters 10–14. This route proves the service is
- * yours by echoing your token; see the challenge page for the wire contract
- * (the exact JSON to send and receive).
- * Until then it returns 501 so probes honestly fail.
+ * Challenge 3 handshake. The course platform expects:
+ *   { service: "simulator", specVersion: "1", studentToken: "<your token>" }
+ *
+ * studentToken comes from the SITE_TOKEN env var — the same one /api/health
+ * and /api/reasoning/meta already return. Set it in .env.local and in Vercel.
  */
 export async function GET() {
-  return notBuiltYet(3, "Decision Simulator");
+  return NextResponse.json({
+    service: "simulator",
+    specVersion: "1",
+    studentToken: process.env.SITE_TOKEN ?? "SITE_TOKEN-env-var-not-set",
+  });
 }
