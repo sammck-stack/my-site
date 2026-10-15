@@ -82,9 +82,10 @@ export async function POST(req: Request) {
   const downPct = asNumber(problem.downPct);
   const horizonYears = asNumber(problem.horizonYears);
   const buyIn = asNumber(problem.buyIn);
-  const fractions = Array.isArray(problem.candidateFractions)
-    ? problem.candidateFractions.map(asNumber)
+  const parsedFractions: (number | null)[] = Array.isArray(problem.candidateFractions)
+    ? (problem.candidateFractions as unknown[]).map(asNumber)
     : [];
+  const fractions = parsedFractions.filter((f): f is number => f !== null);
 
   if (
     upPct === null ||
@@ -92,7 +93,7 @@ export async function POST(req: Request) {
     horizonYears === null ||
     buyIn === null ||
     fractions.length === 0 ||
-    fractions.some((f) => f === null)
+    fractions.length !== parsedFractions.length
   ) {
     return NextResponse.json(
       { error: "investment-game is missing numeric fields" },
@@ -104,7 +105,7 @@ export async function POST(req: Request) {
   const down = downPct / 100;
   const years = Math.round(horizonYears);
 
-  const candidates: CandidateSummary[] = (fractions as number[]).map((f) =>
+  const candidates: CandidateSummary[] = fractions.map((f) =>
     summarize(f, simulateFinals(buyIn, f, up, down, years), buyIn)
   );
 
