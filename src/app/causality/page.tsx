@@ -66,7 +66,7 @@ export default async function CausalityPage() {
 
       <section className="mt-10">
         <h2 className="text-2xl font-bold">The verdict</h2>
-        <ul className="mt-3 space-y-1 text-lg">
+        <ul className="mt-3 space-y-1 rounded-lg border border-line border-l-4 border-l-accent bg-surface px-4 py-3 text-lg">
           <li>
             Verdict:{" "}
             <strong data-causality="verdict" className="text-accent">
